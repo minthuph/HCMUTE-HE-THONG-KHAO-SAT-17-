@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HCMUTE Survey System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="login-screen" class="screen active">
+        <div class="login-header-top">
+        <img src="Logo HCM-UTE.png" alt="Logo HCMUTE" class="login-logo-img">
+        <div class="login-header-text">
+            <h1 class="school-name-bold">HỆ THỐNG KHẢO SÁT</h1>
+            <p class="school-name-italic">Trường Đại học Công nghệ Kỹ thuật TP.HCM</p>
+        </div>
+    </div>
+        <div class="login-box">
+            <h2>Hệ thống Khảo sát Sinh viên</h2>
+            <p>Vui lòng đăng nhập bằng Mã số sinh viên</p>
+            <div class="custom-login-form">
+                <input type="text" id="username-input" placeholder="Nhập MSSV (VD: 21110001)">
+                <input type="password" id="password-input" placeholder="Mật khẩu">
+                <button id="login-btn" class="cta-btn login-submit-btn">Đăng nhập</button>
+            </div>
+            <p id="login-error" class="error-msg"></p>
+        </div>
+    </div>
+
+    <div id="app-screen" class="screen">
+        
+        <header class="site-header">
+            
+                <img id="school-logo" src="Screenshot 2026-03-28 145247.png" alt="School Logo" class="logo-circle" onclick="switchTab('tab-home')" title="Nhấn vào đây để về trang chủ">
+                
+    
+        </header>
+
+        <nav>
+            <div class="nav-container">
+                <button class="tab-btn active" data-target="tab-home">Trang chủ</button>
+                <button class="tab-btn" data-target="tab-survey" id="nav-survey-btn">Làm khảo sát</button>
+                <button class="tab-btn" data-target="tab-stats">Thống kê</button>
+                <button class="tab-btn" data-target="tab-ranking">Xếp hạng</button>
+                <button class="tab-btn" data-target="tab-contact">Liên hệ</button>
+                <button id="logout-btn">Đăng xuất</button>
+            </div>
+        </nav>
+
+        <div class="marquee">
+            <p>Đây là trang khảo sát ý kiến sinh viên để khảo sát ý kiến các bạn sinh viên cảm thấy trường Đại học Công nghệ Kỹ thuật TP.HCM như thế nào sau 1 thời gian các bạn học</p>
+        </div>
+
+        <div class="layout-container">
+            
+            <main>
+                <section id="tab-home" class="tab-content active">
+                    <!-- CAROUSEL BANNER -->
+                    <div class="carousel-banner">
+                        <div class="carousel-container">
+                            <div class="carousel-slide active" style="background: url('https://hcmute.edu.vn/Resources/Images/SubDomain/HomePage/Nut/360%20tour.jpg') center/cover no-repeat;">
+                                <div class="carousel-content">
+                                    <h2>Ý kiến của bạn rất quan trọng</h2>
+                                    <p>Giúp chúng tôi cải thiện trường học</p>
+                                </div>
+                            </div>
+                            <div class="carousel-slide" style="background: url('https://handbook.hcmute.edu.vn/tieu-diem-2024/img/4.jpg') center/cover no-repeat;">
+                                <div class="carousel-content">
+                                    <h2>Cơ sở vật chất hiện đại</h2>
+                                    <p>Cho bạn môi trường học tập tốt nhất</p>
+                                </div>
+                            </div>
+                            <div class="carousel-slide" style="background: url('https://hcmute.edu.vn/Resources/Images/SubDomain/HomePage/tin%20tuc/%C4%90%E1%BB%9DI%20S%E1%BB%90NG%20SINH%20VI%C3%8AN/Tuy%E1%BB%83n%20sinh/Tuyen%20sinh%209.jpg') center/cover no-repeat;">
+                                <div class="carousel-content">
+                                    <h2>Giảng viên hỗ trợ tối đa</h2>
+                                    <p>Luôn sẵn lòng giúp đỡ sinh viên</p>
+                                </div>
+                            </div>
+                            <div class="carousel-slide" style="background: url('https://hoisinhvientphcm.com/wp-content/uploads/2023/04/IMG_1598-scaled.jpg') center/cover no-repeat;">
+                                <div class="carousel-content">
+                                    <h2>Nhận thưởng EXP</h2>
+                                    <p>Tích lũy điểm từ mỗi khảo sát</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-arrow prev" onclick="prevSlide()" aria-label="Slide trước">&#10094;</button>
+                        <button class="carousel-arrow next" onclick="nextSlide()" aria-label="Slide tiếp theo">&#10095;</button>
+                        <div class="carousel-dots">
+                            <span class="dot active" onclick="currentSlide(0)"></span>
+                            <span class="dot" onclick="currentSlide(1)"></span>
+                            <span class="dot" onclick="currentSlide(2)"></span>
+                            <span class="dot" onclick="currentSlide(3)"></span>
+                        </div>
+                    </div>
+
+                    <!-- FEATURES SECTION -->
+                    <div class="features-section">
+                        <h2 class="section-title">Tại sao bạn nên tham gia?</h2>
+                        <div class="features-grid">
+                            <article class="feature-card">
+                                <div class="feature-icon">🛡️</div>
+                                <h3>Minh bạch</h3>
+                                <p>Kết quả được công khai rõ ràng, trung thực.</p>
+                            </article>
+                            <article class="feature-card">
+                                <div class="feature-icon">🔒</div>
+                                <h3>An toàn</h3>
+                                <p>Bảo mật thông tin sinh viên tuyệt đối.</p>
+                            </article>
+                            <article class="feature-card">
+                                <div class="feature-icon">🎁</div>
+                                <h3>Thưởng EXP</h3>
+                                <p>Tích lũy điểm để đua top xếp hạng.</p>
+                            </article>
+                        </div>
+                    </div>
+
+                    <!-- INFO SECTION -->
+                    <div class="info-section">
+                        <div class="info-content">
+                            <h3>📖 Về hệ thống</h3>
+                            <p>Hệ thống khảo sát ý kiến sinh viên HCMUTE được thiết kế nhằm thu thập ý kiến quý báu từ sinh viên về các khía cạnh của nhà trường. Mỗi lần tham gia khảo sát, bạn sẽ nhận được điểm EXP để xây dựng bảng xếp hạng cá nhân.</p>
+                        </div>
+                        <div class="cta-container">
+                            <button id="cta-survey-btn" class="cta-btn cta-survey">🚀 Bắt đầu khảo sát ngay</button>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="tab-survey" class="tab-content">
+                    <h2 class="section-title">Chọn chủ đề khảo sát</h2>
+                    <div id="survey-categories" class="survey-grid survey-grid-2x2">
+                        <article class="survey-card survey-card-box" data-survey="facility">
+                            <div class="corner-text">Chưa làm khảo sát</div>
+                            <div class="bottom-text" style="display: none;">Khảo sát bổ sung</div>
+                            <div class="survey-icon">🏢</div>
+                            <div class="survey-text">Cơ sở vật chất</div>
+                            <div class="survey-progress-wrapper">
+                                <div class="survey-progress-bar" data-survey="facility"></div>
+                            </div>
+                        </article>
+                        <article class="survey-card survey-card-box" data-survey="teacher">
+                            <div class="corner-text">Chưa làm khảo sát</div>
+                            <div class="bottom-text" style="display: none;">Khảo sát bổ sung</div>
+                            <div class="survey-icon">👨‍🏫</div>
+                            <div class="survey-text">Chất lượng giảng viên</div>
+                            <div class="survey-progress-wrapper">
+                                <div class="survey-progress-bar" data-survey="teacher"></div>
+                            </div>
+                        </article>
+                        <article class="survey-card survey-card-box" data-survey="library">
+                            <div class="corner-text">Chưa làm khảo sát</div>
+                            <div class="bottom-text" style="display: none;">Khảo sát bổ sung</div>
+                            <div class="survey-icon">📚</div>
+                            <div class="survey-text">Khu vực thư viện</div>
+                            <div class="survey-progress-wrapper">
+                                <div class="survey-progress-bar" data-survey="library"></div>
+                            </div>
+                        </article>
+                        <article class="survey-card survey-card-box" data-survey="dining">
+                            <div class="corner-text">Chưa làm khảo sát</div>
+                            <div class="bottom-text" style="display: none;">Khảo sát bổ sung</div>
+                            <div class="survey-icon">🍜</div>
+                            <div class="survey-text">Khu vực ăn uống</div>
+                            <div class="survey-progress-wrapper">
+                                <div class="survey-progress-bar" data-survey="dining"></div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div id="active-survey" style="display: none;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; gap: 15px;">
+                            <h2 id="survey-title" style="margin-bottom: 0;">Tiêu đề khảo sát</h2>
+                            <button onclick="goBackToCategories()" class="cta-btn" style="background: #ffc107; color: #000; font-size: 14px; padding: 10px 20px; border: none; white-space: nowrap;">Quay lại</button>
+                        </div>
+    
+                        <div class="progress-bar"><div class="progress" id="survey-progress"></div></div>
+                        <div id="question-container"></div>
+                        <button id="submit-survey-btn" class="cta-btn" style="display:none;" onclick="submitSurvey()">Hoàn thành & Nhận 100 EXP</button>
+                    </div>
+                </section>
+
+                <section id="tab-stats" class="tab-content">
+                    <h2 class="section-title">Thống kê dữ liệu</h2>
+                    <div id="admin-view" style="display:none;">
+                        <div class="stats-dashboard">
+                            <article class="stat-box">
+                                <div class="stat-icon">📊</div>
+                                <div class="stat-label">Tổng phiếu khảo sát</div>
+                                <strong>0</strong>
+                            </article>
+                            <article class="stat-box">
+                                <div class="stat-icon">👥</div>
+                                <div class="stat-label">Người tham gia</div>
+                                <strong>0/0</strong>
+                            </article>
+                            <article class="stat-box">
+                                <div class="stat-icon">⭐</div>
+                                <div class="stat-label">Tổng EXP</div>
+                                <strong>0</strong>
+                            </article>
+                            <article class="stat-box">
+                                <div class="stat-icon">👤</div>
+                                <div class="stat-label">Tổng người dùng</div>
+                                <strong>0</strong>
+                            </article>
+                        </div>
+
+                        <div class="stats-details">
+                            <h3>📈 Thống kê theo chủ đề</h3>
+                            <p class="topic-instruction">Nhấn vào một chủ đề để mở báo cáo chi tiết trên trang riêng.</p>
+                            <div id="topic-details" class="topic-details-container">
+                                <!-- Sẽ được cập nhật bởi JavaScript -->
+                            </div>
+                        </div>
+
+                        <div class="admin-controls">
+                            <button id="export-data-btn" class="cta-btn btn-export">📥 Xuất dữ liệu</button>
+                            <input type="file" id="import-data-input" accept=".json" style="display:none;">
+                            <button id="import-data-btn" class="cta-btn btn-import">📤 Nhập dữ liệu</button>
+                        </div>
+                    </div>
+                    <div id="user-view" style="display:none;" class="error-msg">
+                        🚫 Bạn không có quyền truy cập trang này. Chỉ Admin mới có thể xem thống kê.
+                    </div>
+                </section>
+
+                <section id="tab-ranking" class="tab-content">
+                    <h2 class="section-title">Bảng xếp hạng năng nổ</h2>
+                    <table>
+                        <thead>
+                            <tr><th>Hạng</th><th>MSSV</th><th>Điểm EXP</th></tr>
+                        </thead>
+                        <tbody id="ranking-body">
+                            </tbody>
+                    </table>
+                </section>
+
+                <section id="tab-contact" class="tab-content">
+                    <h2 class="section-title">Liên hệ Ban hỗ trợ</h2>
+                    <div class="contact-section">
+                        <div class="contact-info-card">
+                            <div class="contact-icon">📧</div>
+                            <h3>Email</h3>
+                            <p class="contact-detail">support@student.hcmute.edu.vn</p>
+                            <p class="contact-desc">Gửi email cho chúng tôi để được hỗ trợ nhanh chóng</p>
+                        </div>
+
+                        <div class="contact-info-card">
+                            <div class="contact-icon">📍</div>
+                            <h3>Địa chỉ</h3>
+                            <p class="contact-detail">A1-101, Tòa nhà Trung tâm</p>
+                            <p class="contact-desc">Ghé thăm văn phòng Ban hỗ trợ trực tiếp</p>
+                        </div>
+
+                        <div class="contact-info-card">
+                            <div class="contact-icon">⏰</div>
+                            <h3>Giờ làm việc</h3>
+                            <p class="contact-detail">8:00 - 17:00 (Thứ 2 - Thứ 6)</p>
+                            <p class="contact-desc">Hỗ trợ cả trong giờ nghỉ trưa</p>
+                        </div>
+
+                        <div class="contact-info-card">
+                            <div class="contact-icon">💬</div>
+                            <h3>Góp ý</h3>
+                            <p class="contact-detail">Hộp góp ý hệ thống</p>
+                            <p class="contact-desc">Giúp chúng tôi cải thiện dịch vụ</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-message">
+                        <div class="message-icon">💡</div>
+                        <h3>Có thắc mắc? Chat với mọi người ngay!</h3>
+                        <p>Mọi câu hỏi về hệ thống khảo sát, quy trình làm bài, hoặc các vấn đề kỹ thuật khác đều được chúng tôi hỗ trợ. Đăng nhập và gửi tin nhắn, mọi người sẽ thấy ngay.</p>
+                        <div class="contact-chat">
+                            <div class="chat-header">Chat trực tuyến</div>
+                            <div id="chat-window" class="chat-window"></div>
+                            <div class="chat-input-row">
+                                <input id="chat-input" type="text" placeholder="Nhập tin nhắn..." maxlength="250">
+                                <button id="chat-send-btn" class="cta-btn">Gửi</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <aside>
+                <div class="sidebar-widget">
+                    <h3>👤 Hồ sơ của bạn</h3>
+                    <p>MSSV: <strong id="profile-mssv">Đang tải...</strong></p>
+                    <p>Điểm hiện tại: <strong id="profile-exp" class="exp-text">0 EXP</strong></p>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3>📊 Thống kê nhanh</h3>
+                    <ul>
+                        <li><span class="stat-label">Khảo sát hoàn thành:</span> <strong style="color: #27ae60;">0/4</strong></li>
+                        <li><span class="stat-label">Tổng EXP nhận:</span> <strong style="color: #e67e22;">0</strong></li>
+                        <li><span class="stat-label">Xếp hạng hiện tại:</span> <strong style="color: #2980b9;">-/-</strong></li>
+                    </ul>
+                </div>
+                
+                <div class="sidebar-widget">
+                    <h3>📰 Bảng tin mới</h3>
+                    <ul>
+                        <li><small>🟢 Mới nhất:</small> Khảo sát căn tin đã mở!</li>
+                        <li><small>⭐ Hôm qua:</small> Cập nhật bảng xếp hạng tuần.</li>
+                        <li><small>📢 Hôm kia:</small> Kết quả khảo sát CSVC được công bố.</li>
+                        <li><small>🎉 Sự kiện:</small> Công bố top 10 sinh viên tích cực!</li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3>🏆 Top 3 xếp hạng</h3>
+                    <ul style="padding-left: 0 !important;">
+                        <li style="display: flex; align-items: center; gap: 10px; border: none !important; padding: 8px 0 !important; margin: 8px 0 !important;">
+                            <span style="font-size: 20px; color: #f39c12;">🥇</span>
+                            <span><strong>-</strong> - 0 EXP</span>
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 10px; border: none !important; padding: 8px 0 !important; margin: 8px 0 !important;">
+                            <span style="font-size: 20px; color: #95a5a6;">🥈</span>
+                            <span><strong>-</strong> - 0 EXP</span>
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 10px; border: none !important; padding: 8px 0 !important; margin: 8px 0 !important;">
+                            <span style="font-size: 20px; color: #cd7f32;">🥉</span>
+                            <span><strong>-</strong> - 0 EXP</span>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 Bản quyền thuộc về Hệ thống khảo sát HCMUTE. Coded with ❤️.</p>
+        </footer>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database-compat.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
